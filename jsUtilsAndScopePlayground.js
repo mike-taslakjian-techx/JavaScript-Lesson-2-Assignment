@@ -100,3 +100,24 @@ function greeting() {
     within the if block. However, this only applies to let and const, var is not block scoped and can be accessed outside
     the block scope within the greeting() function.
 */
+
+// Part C: Hoisting & TDZ Debugger
+
+try {
+    console.log(x); //JS has allocated memory for this variable but it has not yet been initialized with a value, thus it will print undefined
+    console.log(y); //JS has allocated memory for this variable, however since it has not yet been declared and initialized, throws ReferenceError.
+    console.log(z); //JS has allocated memory for this variable, however since it has not yet been declared and initialized, throws ReferenceError.
+    console.log(isRich(15)); //Since the function was declared with let, it will act as a let variable, with the same output as variables "y" and "z".
+    console.log(isHomeless(true)); //Will work
+} catch(error) {
+    console.error(error);
+}
+
+var x = "x";
+let y = "y";
+const z = "z";
+let isRich = (netWorth) => netWorth > 1000000 ? true : false;
+function isHomeless (houseExists) {
+    return houseExists ? false : true;
+};
+
