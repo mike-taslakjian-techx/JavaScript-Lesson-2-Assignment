@@ -64,3 +64,39 @@ const getLastChar = str => str[str.length - 1];
 
 console.log("First test for function 6:", getLastChar("Mike")); //Test for function 6
 console.log("Second test for function 6:", getLastChar("Davit")); //Test for function 6
+
+//  Part B: Scope Simulation & Analysis
+
+let a = "Global scope";
+
+function greeting() {
+    var b = "Function scope";
+    
+    if (generateRandomNum(0, 100) % 2 === 0) {
+        let c = "Block scope let";
+        const d = "Block scope const";
+    }
+
+    function nestedFunction () {
+        console.log(a); //Accessible everywhere in scope
+        console.log(b); //Accessible anywhere in the greeting() function
+        console.log(c); //Not accessible here, only accessible if the if block
+        console.log(d); //Not accessible here, only accessible if the if block
+    };
+
+    nestedFunction();
+};
+
+/*
+    JavaScript scope works lexically. Every time we try to access a variable, JavaScript
+    attempts to find that variable's value within that scope. If this variable is not found, 
+    it begins to look into the variable's lexical environment, which is the scope of its parent.
+    This is why nestedFunction is able to access variables "a" and "b" even though they are not
+    found in the function's direct scope.
+
+    In addition, variables "c" and "d" are not accessible as they were declared and initialized
+    in a block scope. Any variable declared and initialized in a block scope such as if, else, for, while...
+    will only be accessible within that scope, so both "c" and "d" act as temporary variables only to be used 
+    within the if block. However, this only applies to let and const, var is not block scoped and can be accessed outside
+    the block scope within the greeting() function.
+*/
