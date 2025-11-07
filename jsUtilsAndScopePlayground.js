@@ -105,7 +105,7 @@ function greeting() {
 
 try {
     console.log(x); //JS has allocated memory for this variable but it has not yet been initialized with a value, thus it will print undefined
-    console.log(y); //JS has allocated memory for this variable, however since it has not yet been declared and initialized, throws ReferenceError.
+    console.log(y); //JS has allocated memory for this variable, however since it has not yet been declared and initialized, throws ReferenceError. It is in the temportal dead zone.
     console.log(z); //JS has allocated memory for this variable, however since it has not yet been declared and initialized, throws ReferenceError.
     console.log(isRich(15)); //Since the function was declared with let, it will act as a let variable, with the same output as variables "y" and "z".
     console.log(isHomeless(true)); //Will work
